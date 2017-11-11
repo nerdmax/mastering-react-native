@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { StyleSheet, View, Text } from "react-native";
 
-export default class DemoOnLayout extends Component {
+export class DemoOnLayout extends Component {
   constructor(props) {
     super(props);
     this.state = {
