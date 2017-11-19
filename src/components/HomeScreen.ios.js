@@ -1,10 +1,21 @@
 import React, { Component } from "react";
-import { TabBarIOS, Text, StatusBar } from "react-native";
+import { TabBarIOS, Text, StatusBar, Alert, Vibration } from "react-native";
 import NewsFeed from "./NewsFeed";
 import Search from "./Search";
 import * as globalStyles from "../styles/global";
 
+// Set the status bar for iOS to light
+StatusBar.setBarStyle("light-content");
+
 export default class HomeScreen extends Component {
+  showBookmarkAlert() {
+    Vibration.vibrate();
+    Alert.alert(
+      "Coming Soon!",
+      "We're hard at work on this feature, check back in the near future.",
+      [{ text: "OK", onPress: () => console.log("User pressed OK") }]
+    );
+  }
   constructor(props) {
     super(props);
     this.state = {
@@ -32,7 +43,7 @@ export default class HomeScreen extends Component {
         <TabBarIOS.Item
           systemIcon={"bookmarks"}
           selected={this.state.tab === "bookmarks"}
-          onPress={() => this.setState({ tab: "bookmarks" })}
+          onPress={() => this.showBookmarkAlert()}
         >
           <Text>Bookmarks</Text>
         </TabBarIOS.Item>

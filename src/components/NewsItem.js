@@ -1,11 +1,30 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
-import { View, TouchableOpacity, StyleSheet } from "react-native";
+import {
+  View,
+  TouchableOpacity,
+  StyleSheet,
+  ActionSheetIOS,
+} from "react-native";
 import Byline from "./Byline";
 import AppText from "./AppText";
 import Thumbnail from "./Thumbnail";
 import * as globalStyles from "../styles/global";
 export default class NewsItem extends Component {
+  constructor(props) {
+    super(props);
+    this.onLongPress = this.onLongPress.bind(this);
+  }
+  onLongPress() {
+    ActionSheetIOS.showActionSheetWithOptions(
+      {
+        options: ["Bookmark", "Cancel"],
+        cancelButtonIndex: 1,
+        title: this.props.title,
+      },
+      buttonIndex => console.log("Button selected", buttonIndex)
+    );
+  }
   render() {
     const {
       style,
@@ -22,7 +41,11 @@ export default class NewsItem extends Component {
         this.props.index % globalStyles.ACCENT_COLORS.length
       ];
     return (
-      <TouchableOpacity style={style} onPress={onPress}>
+      <TouchableOpacity
+        style={style}
+        onPress={onPress}
+        onLongPress={this.onLongPress}
+      >
         <View>
           <Thumbnail
             url={imageUrl}
