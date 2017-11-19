@@ -1,7 +1,9 @@
 import React, { Component } from "react";
-import { TabBarIOS, Text } from "react-native";
+import { TabBarIOS, Text, StatusBar } from "react-native";
 import NewsFeed from "./NewsFeed";
+import Search from "./Search";
 import * as globalStyles from "../styles/global";
+
 export default class HomeScreen extends Component {
   constructor(props) {
     super(props);
@@ -25,7 +27,7 @@ export default class HomeScreen extends Component {
           selected={this.state.tab === "search"}
           onPress={() => this.setState({ tab: "search" })}
         >
-          <Text>Search</Text>
+          <Search />
         </TabBarIOS.Item>
         <TabBarIOS.Item
           systemIcon={"bookmarks"}
