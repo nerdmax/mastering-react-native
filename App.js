@@ -8,8 +8,8 @@ import {
 } from "react-native";
 
 import { DemoOnPress, DemoOnLayout } from "./Chapter3/Chapter3";
-
 import HomeScreen from "./Chapter4//src/components/HomeScreen";
+import { Countly } from "./Chapter5/Countly";
 
 export default class App extends React.Component {
   render() {
@@ -18,7 +18,8 @@ export default class App extends React.Component {
       // <DemoOnPress />
       // <DemoOnLayout />
       // <NewsFeed />
-      <HomeScreen />
+      // <HomeScreen />
+      <Countly />
     );
   }
 }
