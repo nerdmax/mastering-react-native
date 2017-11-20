@@ -9,8 +9,7 @@ import {
 
 import { DemoOnPress, DemoOnLayout } from "./Chapter3/Chapter3";
 
-import NewsFeed from "./src/components/NewsFeed";
-import HomeScreen from "./src/components/HomeScreen";
+import HomeScreen from "./Chapter4//src/components/HomeScreen";
 
 export default class App extends React.Component {
   render() {
